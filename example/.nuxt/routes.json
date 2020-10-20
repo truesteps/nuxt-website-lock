@@ -1,0 +1,15 @@
+[
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/Users/pjanos01/Projects/bistro/nuxt-website-lock/example/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_1fdca50c"
+  },
+  {
+    "path": "/website-lock",
+    "component": "/Users/pjanos01/Projects/bistro/nuxt-website-lock/lib/pages/index.vue",
+    "name": "website-lock",
+    "_name": "_4d71c895"
+  }
+]
