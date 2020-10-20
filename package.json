@@ -1,6 +1,6 @@
 {
   "name": "nuxt-website-lock",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Add a middleware to be able to lock pages behind a password",
   "repository": {
     "type": "git",
