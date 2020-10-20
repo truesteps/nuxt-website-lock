@@ -1,7 +1,7 @@
 {
   "name": "nuxt-website-lock",
   "version": "0.0.1",
-  "description": "[![npm version][npm-version-src]][npm-version-href] [![npm downloads][npm-downloads-src]][npm-downloads-href] [![Github Actions CI][github-actions-ci-src]][github-actions-ci-href] [![Codecov][codecov-src]][codecov-href] [![License][license-src]][license-href]",
+  "description": "Add a middleware to be able to lock pages behind a password",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/truesteps/nuxt-website-lock.git"

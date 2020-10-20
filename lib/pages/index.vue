@@ -1,12 +1,14 @@
 <template>
   <div class="login">
     <div v-if="errors.length > 0" class="alert__wrap">
-      <div v-for="error in errors" class="login__form-error">
+      <div v-for="(error, index) in errors" :key="index" class="login__form-error">
         {{ error }}
       </div>
     </div>
 
-    <h1 class="login__heading">This website is locked.</h1>
+    <h1 class="login__heading">
+      This website is locked.
+    </h1>
 
     <form class="login__form" method="post" action="#" @submit.prevent="sendForm">
       <div class="login__form-input-wrap">
@@ -14,11 +16,11 @@
 
         <input
           id="login-password"
+          v-model="password"
           class="login__form-password"
           type="password"
           name="website-lock-password"
           placeholder="Insert password..."
-          v-model="password"
           autofocus
         >
 
@@ -206,54 +208,54 @@
 </style>
 
 <script>
-  import Utilities from '../utilities/helpers';
+import Utilities from '../utilities/helpers'
 
-  export default {
-    name: 'WebsiteLock',
-    layout: 'website-lock',
-    data() {
-      return {
-        errors: [],
-        // form data
-        password: null,
-        // axios settings
-        apiUrl: process.env.NUXT_API_URL,
-        request: null,
-      };
-    },
-    methods: {
-      sendForm() {
-        const source = this.$axios.CancelToken.source();
+export default {
+  name: 'WebsiteLock',
+  layout: 'website-lock',
+  data () {
+    return {
+      errors: [],
+      // form data
+      password: null,
+      // axios settings
+      apiUrl: process.env.NUXT_API_URL,
+      request: null
+    }
+  },
+  methods: {
+    sendForm () {
+      const source = this.$axios.CancelToken.source()
 
-        if (this.request) {
-          source.cancel();
-        }
+      if (this.request) {
+        source.cancel()
+      }
 
-        this.request = this.$axios
-          .$get(`${this.apiUrl}/web-site-lock/token?password=${this.password}`, {
-            cancelToken: source.token,
-            headers: {
-              Accept: 'application/json',
-            },
-          })
-          .then((response) => {
-            // clear resources
-            this.errors = [];
-            this.request = null;
-            // save token to cookies
-            this.$websiteLock.setToken(response.token);
-            // redirect user back to where he came from
-            const redirectPath = typeof this.$route.query.from !== 'undefined' ? this.$route.query.from : '';
+      this.request = this.$axios
+        .$get(`${this.apiUrl}/web-site-lock/token?password=${this.password}`, {
+          cancelToken: source.token,
+          headers: {
+            Accept: 'application/json'
+          }
+        })
+        .then((response) => {
+          // clear resources
+          this.errors = []
+          this.request = null
+          // save token to cookies
+          this.$websiteLock.setToken(response.token)
+          // redirect user back to where he came from
+          const redirectPath = typeof this.$route.query.from !== 'undefined' ? this.$route.query.from : ''
 
-            // since nuxt can't handle removing CSS, "hard" redirect to previous URL
-            window.location = `${process.env.APP_URL}${redirectPath}`;
-          })
-          .catch((xhr) => {
-            this.errors = Utilities.extractErrorMessagesFromXHR(xhr);
-            // clear request
-            this.request = null;
-          });
-      },
-    },
-  };
+          // since nuxt can't handle removing CSS, "hard" redirect to previous URL
+          window.location = `${process.env.APP_URL}${redirectPath}`
+        })
+        .catch((xhr) => {
+          this.errors = Utilities.extractErrorMessagesFromXHR(xhr)
+          // clear request
+          this.request = null
+        })
+    }
+  }
+}
 </script>

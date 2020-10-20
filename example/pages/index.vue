@@ -9,18 +9,18 @@
 </template>
 
 <script>
-  export default {
-    middleware: ['WebsiteLock'],
-    methods: {
-      testAxios() {
-        this.$axios.$get(`/web-site-lock/token/validate`)
-          .then(() => {
-            alert('IT WORKS!');
-          })
-          .catch(() => {
-            alert('IT BORKED :(');
-          });
-      },
-    },
-  };
+export default {
+  middleware: ['WebsiteLock'],
+  methods: {
+    testAxios () {
+      this.$axios.$get('/web-site-lock/token/validate')
+        .then(() => {
+          alert('IT WORKS!')
+        })
+        .catch(() => {
+          alert('IT BORKED :(')
+        })
+    }
+  }
+}
 </script>
