@@ -225,6 +225,14 @@ export default {
   },
   methods: {
     sendForm () {
+      if (this.$websiteLock.isServerValidationEnabled) {
+        this.validateTokenOnServer()
+      } else {
+        this.saveToken(this.password)
+      }
+    },
+
+    validateTokenOnServer () {
       const source = this.$axios.CancelToken.source()
 
       if (this.request) {
@@ -239,22 +247,26 @@ export default {
           }
         })
         .then((response) => {
-          // clear resources
-          this.errors = []
-          this.request = null
-          // save token to cookies
-          this.$websiteLock.setToken(response.token)
-          // redirect user back to where he came from
-          const redirectPath = typeof this.$route.query.from !== 'undefined' ? this.$route.query.from : ''
-
-          // since nuxt can't handle removing CSS, "hard" redirect to previous URL
-          window.location = `${process.env.APP_URL}${redirectPath}`
+          this.saveToken(response.token)
         })
         .catch((xhr) => {
           this.errors = Utilities.extractErrorMessagesFromXHR(xhr)
           // clear request
           this.request = null
         })
+    },
+
+    saveToken (token) {
+      // clear resources
+      this.errors = []
+      this.request = null
+      // save token to cookies
+      this.$websiteLock.setToken(token)
+      // redirect user back to where he came from
+      const redirectPath = typeof this.$route.query.from !== 'undefined' ? this.$route.query.from : ''
+
+      // since nuxt can't handle removing CSS, "hard" redirect to previous URL
+      window.location = `${process.env.APP_URL}${redirectPath}`
     }
   }
 }

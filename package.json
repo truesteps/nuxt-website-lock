@@ -22,7 +22,8 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.12.2",
-    "cookie": "^0.4.1"
+    "cookie": "^0.4.1",
+    "md5": "^2.3.0"
   },
   "devDependencies": {
     "@babel/core": "latest",
