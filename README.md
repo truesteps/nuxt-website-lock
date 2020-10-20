@@ -41,7 +41,7 @@ yarn add nuxt-website-lock # or npm install nuxt-website-lock
 
 [MIT License](./LICENSE)
 
-Copyright (c) 
+Copyright (c) Patrik Jánosdeák
 
 <!-- Badges -->
 [npm-version-src]: https://img.shields.io/npm/v/nuxt-website-lock/latest.svg
