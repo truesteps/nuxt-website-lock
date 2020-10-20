@@ -215,12 +215,21 @@ export default {
   layout: 'website-lock',
   data () {
     return {
-      errors: [],
       // form data
       password: null,
       // axios settings
       apiUrl: process.env.NUXT_API_URL,
       request: null
+    }
+  },
+  computed: {
+    errors: {
+      get () {
+        return this.$store.state.websiteLock.errors
+      },
+      set (value) {
+        this.$store.commit('websiteLock/setErrors', value)
+      }
     }
   },
   methods: {
@@ -261,7 +270,14 @@ export default {
       this.errors = []
       this.request = null
       // save token to cookies
-      this.$websiteLock.setToken(token)
+      const result = this.$websiteLock.setToken(token)
+
+      // if wrong password, don't redirect
+      if (!result) {
+        this.password = null
+        return
+      }
+
       // redirect user back to where he came from
       const redirectPath = typeof this.$route.query.from !== 'undefined' ? this.$route.query.from : ''
 
