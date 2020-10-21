@@ -36,9 +36,9 @@ To enable the website lock, you need to pass the app 2 `.env` variables
 
 * `These variables need to be passed via .env or env key in nuxt.config.js`
 
-| Env variable name      | Default value   | Possile values                            |
-|------------------------|-----------------|-------------------------------------------|
-| `WEB_SITE_LOCK_ENABLED` | default: `null` | options: `true`/`false`                   |
+| Env variable name        | Default value   | Possile values                            |
+|--------------------------|-----------------|-------------------------------------------|
+| `WEB_SITE_LOCK_ENABLED`  | default: `null` | options: `true`/`false`                   |
 | `WEB_SITE_LOCK_PASSWORD` | default: `null` | any string (will be simply hashed to md5) |
 
 ## Module options
