@@ -31,6 +31,29 @@ yarn add nuxt-website-lock # or npm install nuxt-website-lock
 }
 ```
 
+## Usage
+To enable the website lock, you need to pass the app 2 `.env` variables
+
+* `These variables need to be passed via .env or env key in nuxt.config.js`
+
+| Env variable name      | Default value   | Possile values                            |
+|------------------------|-----------------|-------------------------------------------|
+| `WEB_SITE_LOCK_ENABLED` | default: `null` | options: `true`/`false`                   |
+| `WEB_SITE_LOCK_PASSWORD` | default: `null` | any string (will be simply hashed to md5) |
+
+## Module options
+| Option name              | Description                                                                                                              | Default value                 | Possible values                |
+|--------------------------|--------------------------------------------------------------------------------------------------------------------------|-------------------------------|--------------------------------|
+| `formPath`               | url at which the form for website lock will be                                                                           | default: `/website-lock`      | any string starting with slash |
+| `enableServerValidation` | whether password should be validated agains BE (tailor fitted for personal use, will be expanded upon in later versions) | default: `false`              | options: `true`/`false`        |
+| `cookieName`             | name of the cookie under which the hashed token will be stored                                                           | default: `websiteLock._token` | any string, cannot be `null`   |
+| `cookie`                 | object storing some cookie                                                                                               |                               |                                |
+| `cookie.prefix`          | prefix of `cookieName` being stored                                                                                      | default: `''`                 | any string, cannot be `null`   |
+| `cookie.expires`         | number of days in which the cookie will expire                                                                           | default: `2`                  | any unsigned integer           |
+
+## Todo
+- [ ] better customizability
+
 ## Development
 
 1. Clone this repository
