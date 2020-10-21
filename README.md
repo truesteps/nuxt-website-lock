@@ -41,6 +41,8 @@ To enable the website lock, you need to pass the app 2 `.env` variables
 | `WEB_SITE_LOCK_ENABLED`  | default: `null` | options: `true`/`false`                   |
 | `WEB_SITE_LOCK_PASSWORD` | default: `null` | any string (will be simply hashed to md5) |
 
+After setting up the `.env`, all you need to do is apply the `WebsiteLock` route middleware to the page(s), which should be locked
+
 ## Module options
 | Option name              | Description                                                                                                              | Default value                 | Possible values                |
 |--------------------------|--------------------------------------------------------------------------------------------------------------------------|-------------------------------|--------------------------------|
