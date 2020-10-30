@@ -91,7 +91,7 @@
   }
 
   body {
-    padding: 15px;
+    padding: 0;
     margin: 0;
     background-color: #f74902;
   }
@@ -103,8 +103,8 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: calc(100vw - 30px);
-    height: calc(100vh - 30px);
+    width: 100vw;
+    height: 100vh;
 
     .login {
       position: relative;
@@ -146,6 +146,7 @@
 
       &-password {
         background-color: #eaeaff;
+        font-family: Helvetica, Arial, sans-serif;
         -moz-appearance: none;
         -webkit-appearance: none;
         padding: 5px 10px;
