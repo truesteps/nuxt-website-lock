@@ -11,7 +11,7 @@ module.exports = {
     WEB_SITE_LOCK_PASSWORD: 'superSecretPassword'
   },
   modules: [
-    { handler: require('../') },
+    { handler: require('../'), options: { enableServerValidation: false } },
     '@nuxtjs/axios'
   ],
 
