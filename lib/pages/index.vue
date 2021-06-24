@@ -278,7 +278,8 @@ export default {
       const redirectPath = typeof this.$route.query.from !== 'undefined' ? this.$route.query.from : ''
 
       // since nuxt can't handle removing CSS, "hard" redirect to previous URL
-      window.location = `${process.env.APP_URL}${redirectPath}`
+      const websiteLockRoute = process.env.WEBSITE_LOCK_FORM_PATH || '/website-lock';
+      window.location = `${window.location.href.replace(websiteLockRoute, '')}/${redirectPath}`
     }
   }
 }
