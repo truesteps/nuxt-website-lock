@@ -27,7 +27,7 @@ yarn add nuxt-website-lock # or npm install nuxt-website-lock
 
     // website-lock has to be before axios so axios instance is available at websitelock module
     // to enable validation of token on BE change "enableServerValidation" to true
-    ['nuxt-website-lock', {enableServerValidation: false, enabled: true, password: 'pass'}],
+    ['nuxt-website-lock', {enableServerValidation: false, enabled: true, password: 'superSecretPassword'}],
     '@nuxtjs/axios',
   ]
 }

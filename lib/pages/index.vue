@@ -35,56 +35,6 @@
 </template>
 
 <style lang="scss">
-  /**
-   * @license
-   * MyFonts Webfont Build ID 2927956, 2014-11-24T09:18:09-0500
-   *
-   * The fonts listed in this notice are subject to the End User License
-   * Agreement(s) entered into by the website owner. All other parties are
-   * explicitly restricted from using the Licensed Webfonts(s).
-   *
-   * You may obtain a valid license at the URLs below.
-   *
-   * Webfont: HelveticaNeueLT-Bold by Linotype
-   * URL: http://www.myfonts.com/fonts/linotype/neue-helvetica/helvetica-75-bold/
-   * Licensed pageviews: 500,000
-   *
-   * Webfont: HelveticaNeueLT-Light by Linotype
-   * URL: http://www.myfonts.com/fonts/linotype/neue-helvetica/helvetica-45-light/
-   * Licensed pageviews: 250,000
-   *
-   * Webfont: HelveticaNeueLT-Roman by Linotype
-   * URL: http://www.myfonts.com/fonts/linotype/neue-helvetica/helvetica-55-roman/
-   * Licensed pageviews: 250,000
-   *
-   *
-   * License: http://www.myfonts.com/viewlicense?type=web&buildid=2927956
-   * Webfonts copyright: Part of the digitally encoded machine readable outline data for producing the Typefaces provided is copyrighted &#x00A9; 1988 - 2006 Linotype GmbH, www.linotype.com. All rights reserved. This software is the property of Linotype GmbH, and may not be repro
-   *
-   * © 2014 MyFonts Inc
-  */
-
-  /* @import must be at top of file, otherwise CSS will not work */
-  @import url("//hello.myfonts.net/count/2cad54");
-
-  @font-face {
-    font-family: 'HelveticaNeueLT-Bold';
-    src: url('../assets/fonts/2CAD54_0_0.eot');
-    src: url('../assets/fonts/2CAD54_0_0.eot?#iefix') format('embedded-opentype'), url('../assets/fonts/2CAD54_0_0.woff2') format('woff2'), url('../assets/fonts/2CAD54_0_0.woff') format('woff'), url('../assets/fonts/2CAD54_0_0.ttf') format('truetype');
-  }
-
-  @font-face {
-    font-family: 'HelveticaNeueLT-Light';
-    src: url('../assets/fonts/2CAD54_1_0.eot');
-    src: url('../assets/fonts/2CAD54_1_0.eot?#iefix') format('embedded-opentype'), url('../assets/fonts/2CAD54_1_0.woff2') format('woff2'), url('../assets/fonts/2CAD54_1_0.woff') format('woff'), url('../assets/fonts/2CAD54_1_0.ttf') format('truetype');
-  }
-
-  @font-face {
-    font-family: 'HelveticaNeueLT-Roman';
-    src: url('../assets/fonts/2CAD54_2_0.eot');
-    src: url('../assets/fonts/2CAD54_2_0.eot?#iefix') format('embedded-opentype'), url('../assets/fonts/2CAD54_2_0.woff2') format('woff2'), url('../assets/fonts/2CAD54_2_0.woff') format('woff'), url('../assets/fonts/2CAD54_2_0.ttf') format('truetype');
-  }
-
   * {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -93,7 +43,8 @@
   body {
     padding: 0;
     margin: 0;
-    background-color: #f74902;
+    background: rgb(34,193,195);
+    background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
   }
 
   .website-lock {
@@ -110,7 +61,7 @@
       position: relative;
       width: 100%;
       max-width: 320px;
-      font-family: "HelveticaNeueLT-Bold", Helvetica, Arial, sans-serif;
+      font-family: Helvetica, Arial, sans-serif;
     }
 
     .login__heading {
