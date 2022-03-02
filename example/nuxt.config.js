@@ -13,8 +13,8 @@ module.exports = {
       handler: require('../'),
       options: {
         enableServerValidation: false,
-        web_site_lock_password: 'superSecretPassword',
-        web_site_lock_enabled: true
+        password: 'superSecretPassword',
+        enabled: true
       }
     },
     '@nuxtjs/axios'

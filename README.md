@@ -40,8 +40,7 @@ To enable the website lock, you need to pass the app 2 `module options` variable
 
 | Option name              | Default value   | Possible values                           |
 |--------------------------|-----------------|-------------------------------------------|
-| `web_site_lock_enabled`  | default: `null` | options: `true`/`false`                   |
-| `web_site_lock_password` | default: `null` | any string (will be simply hashed to md5) |
+
 
 ```js
 {
@@ -51,7 +50,7 @@ To enable the website lock, you need to pass the app 2 `module options` variable
 
     // website-lock has to be before axios so axios instance is available at websitelock module
     // to enable validation of token on BE change "enableServerValidation" to true
-    ['nuxt-website-lock', {enableServerValidation: false, web_site_lock_enabled: true, web_site_lock_password: 'pass'}],
+    ['nuxt-website-lock', {enableServerValidation: false, enabled: true, password: 'pass'}],
     '@nuxtjs/axios',
   ]
 }
@@ -59,15 +58,17 @@ To enable the website lock, you need to pass the app 2 `module options` variable
 
 After setting up the `module options`, all you need to do is apply the `WebsiteLock` route middleware to the page(s), which should be locked
 
-## Other module options
-| Option name              | Description                                                                                                              | Default value                 | Possible values                |
-|--------------------------|--------------------------------------------------------------------------------------------------------------------------|-------------------------------|--------------------------------|
-| `formPath`               | url at which the form for website lock will be                                                                           | default: `/website-lock`      | any string starting with slash |
-| `enableServerValidation` | whether password should be validated agains BE (tailor fitted for personal use, will be expanded upon in later versions) | default: `false`              | options: `true`/`false`        |
-| `cookieName`             | name of the cookie under which the hashed token will be stored                                                           | default: `websiteLock._token` | any string, cannot be `null`   |
-| `cookie`                 | object storing some cookie                                                                                               |                               |                                |
-| `cookie.prefix`          | prefix of `cookieName` being stored                                                                                      | default: `''`                 | any string, cannot be `null`   |
-| `cookie.expires`         | number of days in which the cookie will expire                                                                           | default: `2`                  | any unsigned integer           |
+## Module options
+| Option name              | Description                                                                                                              | Default value                 | Possible values                           |
+|--------------------------|--------------------------------------------------------------------------------------------------------------------------|-------------------------------|-------------------------------------------|
+| `enabled`                | whether website lock should be enabled                                                                                   | default: `null`               | options: `true`/`false`                   |
+| `password`               | paswword which unlocks website                                                                                           | default: `null`               | any string (will be simply hashed to md5) |
+| `formPath`               | url at which the form for website lock will be                                                                           | default: `/website-lock`      | any string starting with slash            |
+| `enableServerValidation` | whether password should be validated agains BE (tailor fitted for personal use, will be expanded upon in later versions) | default: `false`              | options: `true`/`false`                   |
+| `cookieName`             | name of the cookie under which the hashed token will be stored                                                           | default: `websiteLock._token` | any string, cannot be `null`              |
+| `cookie`                 | object storing some cookie                                                                                               |                               |                                           |
+| `cookie.prefix`          | prefix of `cookieName` being stored                                                                                      | default: `''`                 | any string, cannot be `null`              |
+| `cookie.expires`         | number of days in which the cookie will expire                                                                           | default: `2`                  | any unsigned integer                      |
 
 ## Todo
 - [ ] better customizability
