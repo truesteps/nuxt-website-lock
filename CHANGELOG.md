@@ -1,4 +1,8 @@
 # Changelog
+`0.2.1`
+- remove font from package, unnecessary inclusion, reducing size
+- change default background color to something prettier
+
 `0.2.0`
 - drop .env file support use module options only for broader nuxt support
 
