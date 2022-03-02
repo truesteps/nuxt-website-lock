@@ -5,7 +5,7 @@
 [![Github Actions CI][github-actions-ci-src]][github-actions-ci-href]
 [![License][license-src]][license-href]
 
-> 
+>
 
 [📖 **Release Notes**](./CHANGELOG.md)
 
@@ -34,18 +34,32 @@ yarn add nuxt-website-lock # or npm install nuxt-website-lock
 ```
 
 ## Usage
-To enable the website lock, you need to pass the app 2 `.env` variables
+To enable the website lock, you need to pass the app 2 `module options` variables
 
-* `These variables need to be passed via .env or env key in nuxt.config.js`
+* `These variables need to be passed via module options in nuxt.config.js`
 
-| Env variable name        | Default value   | Possile values                            |
+| Option name              | Default value   | Possible values                           |
 |--------------------------|-----------------|-------------------------------------------|
-| `WEB_SITE_LOCK_ENABLED`  | default: `null` | options: `true`/`false`                   |
-| `WEB_SITE_LOCK_PASSWORD` | default: `null` | any string (will be simply hashed to md5) |
+| `web_site_lock_enabled`  | default: `null` | options: `true`/`false`                   |
+| `web_site_lock_password` | default: `null` | any string (will be simply hashed to md5) |
 
-After setting up the `.env`, all you need to do is apply the `WebsiteLock` route middleware to the page(s), which should be locked
+```js
+{
+  modules: [
+    // Simple usage
+    'nuxt-website-lock',
 
-## Module options
+    // website-lock has to be before axios so axios instance is available at websitelock module
+    // to enable validation of token on BE change "enableServerValidation" to true
+    ['nuxt-website-lock', {enableServerValidation: false, web_site_lock_enabled: true, web_site_lock_password: 'pass'}],
+    '@nuxtjs/axios',
+  ]
+}
+```
+
+After setting up the `module options`, all you need to do is apply the `WebsiteLock` route middleware to the page(s), which should be locked
+
+## Other module options
 | Option name              | Description                                                                                                              | Default value                 | Possible values                |
 |--------------------------|--------------------------------------------------------------------------------------------------------------------------|-------------------------------|--------------------------------|
 | `formPath`               | url at which the form for website lock will be                                                                           | default: `/website-lock`      | any string starting with slash |
