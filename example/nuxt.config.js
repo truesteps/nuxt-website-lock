@@ -6,12 +6,17 @@ module.exports = {
   srcDir: __dirname,
   env: {
     APP_URL: 'http://localhost:3000',
-    NUXT_API_URL: 'http://localhost/bistro/tady-hub',
-    WEB_SITE_LOCK_ENABLED: true,
-    WEB_SITE_LOCK_PASSWORD: 'superSecretPassword'
+    NUXT_API_URL: 'http://localhost/bistro/tady-hub'
   },
   modules: [
-    { handler: require('../'), options: { enableServerValidation: false } },
+    {
+      handler: require('../'),
+      options: {
+        enableServerValidation: false,
+        password: 'superSecretPassword',
+        enabled: true
+      }
+    },
     '@nuxtjs/axios'
   ],
 
