@@ -27,13 +27,19 @@ yarn add nuxt-website-lock # or npm install nuxt-website-lock
 
     // website-lock has to be before axios so axios instance is available at websitelock module
     // to enable validation of token on BE change "enableServerValidation" to true
-    ['nuxt-website-lock', {enableServerValidation: false, enabled: true, password: 'superSecretPassword'}],
+    ['nuxt-website-lock', { enableServerValidation: false, enabled: true, password: 'superSecretPassword' }],
     '@nuxtjs/axios',
   ]
 }
 ```
 
+## Usage
+
+After setting up the `options` properly, all you need to do is apply the `WebsiteLock` route middleware to the page(s),
+which should be locked
+
 ## Module options
+
 | Option name              | Description                                                                                                               | Default value                 | Possible values                           |
 |--------------------------|---------------------------------------------------------------------------------------------------------------------------|-------------------------------|-------------------------------------------|
 | `enabled`                | whether website lock should be enabled                                                                                    | default: `null`               | options: `true`/`false`                   |
@@ -46,6 +52,7 @@ yarn add nuxt-website-lock # or npm install nuxt-website-lock
 | `cookie.expires`         | number of days in which the cookie will expire                                                                            | default: `2`                  | any unsigned integer                      |
 
 ## Todo
+
 - [ ] better customizability
 
 ## Development
